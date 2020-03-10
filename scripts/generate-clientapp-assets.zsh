@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
 pathToIndex="ClientApp/dist/index.html";
+# Finds the line that contains the stylesheets
 lineToStyleSheets=$(awk '/stylesheet/{ print NR; exit }' $pathToIndex );  # DANGER Super Brittle
+# Finds the line that contains the js scripts
 lineToScripts=$(awk '/script/{ print NR; exit }' $pathToIndex );          # DANGER Super Brittle
 pathToPartials="Pages/Shared"
 
